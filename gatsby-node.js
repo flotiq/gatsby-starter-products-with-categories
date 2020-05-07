@@ -4,51 +4,72 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
   return new Promise((resolve, reject) => {
     const StoreTemplate = path.resolve("src/templates/details.js")
+    const CategoryTemplate = path.resolve("src/templates/category.js")
     resolve(
       graphql(`{
           allProduct(sort: {fields: flotiqInternal___createdAt, order: DESC}) {
-            edges{
-              node{
+              nodes {
                 id
-                slug,
-                name,
-                price,
-                description,
+                slug
+                name
+                price
+                description
                 productImage {
-                  id,
-                  extension
-                },
-                productGallery {
-                  id,
+                  id
                   extension
                 }
+                productGallery {
+                  id
+                  extension
+                }
+                category {
+                  slug
+                }
               }
+          }
+          allCategory(sort: {fields: flotiqInternal___createdAt, order: DESC}) {
+            nodes {
+              id
+              image {
+                extension
+                id
+              }
+              name
+              slug
             }
-          
-        }}
-        
+          }
+        }
       `).then(result => {
         if (result.errors) {
           reject(result.errors)
         }
 
-        const products = result.data.allProduct.edges;
+        const products = result.data.allProduct.nodes;
 
-        products.forEach((edge, index) => {
-
-          const previous = index === products.length - 1 ? null : products[index + 1].node;
-          const next = index === 0 ? null : products[index - 1].node;
+        products.forEach((node) => {
 
           createPage({
-            path: edge.node.slug,
+            path: node.category[0].slug + '/' + node.slug,
             component: StoreTemplate,
             context: {
-              slug: edge.node.slug,
-              previous,
-              next
+              slug: node.slug,
             },
           })
         });
+
+          const categories = result.data.allCategory.nodes;
+
+          categories.forEach((node) => {
+
+
+              createPage({
+                  path: node.slug,
+                  component: CategoryTemplate,
+                  context: {
+                      slug: node.slug,
+                  },
+              })
+          });
         return
       })
     )

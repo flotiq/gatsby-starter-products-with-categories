@@ -1,0 +1,11 @@
+{
+  "id": "category-2",
+  "name": "Black tea",
+  "slug": "black-tea",
+  "image": [
+    {
+      "type": "internal",
+      "dataUrl": "/api/v1/content/_media/_media-5e8da15ac37fb"
+    }
+  ]
+}

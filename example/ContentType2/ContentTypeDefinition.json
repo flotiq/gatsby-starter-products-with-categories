@@ -22,6 +22,13 @@
             "type": "number",
             "minLength": 1
           },
+          "category": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DataSource"
+            },
+            "minItems": 1
+          },
           "description": {
             "type": "string"
           },
@@ -45,52 +52,68 @@
     "required": [
       "name",
       "slug",
+      "category",
       "price"
     ],
     "additionalProperties": false
   },
   "metaDefinition": {
+    "order": [
+      "name",
+      "slug",
+      "category",
+      "price",
+      "description",
+      "productImage",
+      "productGallery"
+    ],
     "propertiesConfig": {
       "name": {
-        "inputType": "text",
         "unique": true,
+        "helpText": "",
+        "inputType": "text",
         "isTitlePart": true
       },
       "slug": {
-        "inputType": "text",
-        "unique": true
+        "unique": true,
+        "helpText": "",
+        "inputType": "text"
       },
       "price": {
-        "inputType": "number",
-        "unique": false
+        "unique": false,
+        "helpText": "",
+        "inputType": "number"
+      },
+      "category": {
+        "unique": false,
+        "helpText": "",
+        "inputType": "datasource",
+        "validation": {
+          "relationContenttype": "category"
+        }
       },
       "description": {
-        "inputType": "richtext",
-        "unique": false
+        "unique": false,
+        "helpText": "",
+        "inputType": "richtext"
       },
       "productImage": {
-        "inputType": "datasource",
         "unique": false,
+        "helpText": "",
+        "inputType": "datasource",
         "validation": {
           "relationContenttype": "_media"
         }
       },
       "productGallery": {
-        "inputType": "datasource",
         "unique": false,
+        "helpText": "",
+        "inputType": "datasource",
         "validation": {
           "relationMultiple": true,
           "relationContenttype": "_media"
         }
       }
-    },
-    "order": [
-      "name",
-      "slug",
-      "price",
-      "description",
-      "productImage",
-      "productGallery"
-    ]
+    }
   }
 }

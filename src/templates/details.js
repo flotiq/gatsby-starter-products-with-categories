@@ -36,7 +36,7 @@ const ProductDetails = data => (
 
         </div>
         <div>
-          <h2>{data.data.product.name}</h2>
+          <h2><a href={`/${data.data.product.category[0].slug}`}>{data.data.product.category[0].name}</a> / {data.data.product.name}</h2>
 
         </div>
         <div className="row buynowinner">
@@ -71,20 +71,24 @@ export default ProductDetails
 
 export const query = graphql`
   query productBySlug($slug: String!) {
-      product(slug: {eq: $slug }) {
+    product(slug: {eq: $slug}) {
+      id
+      slug
+      name
+      price
+      description
+      productImage {
         id
-        slug
-        name
-        price
-        description
-        productImage {
-          id
-          extension
-        },
-        productGallery {
-          id
-          extension
-        }
+        extension
       }
-  }
+      productGallery {
+        id
+        extension
+      }
+      category {
+        name
+        slug
+      }
+    }
+}
 `

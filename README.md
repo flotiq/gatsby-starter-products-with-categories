@@ -2,39 +2,37 @@
     <img src="https://editor.flotiq.com/fonts/fq-logo.svg" alt="Flotiq logo" title="Flotiq" align="right" height="60" />
 </a>  
   
-Gatsby Starter: Ecommerce and Flotiq
+Gatsby Starter: Ecommerce and Flotiq, products with categories
 ========================
 
 
-This is a [Gatsby](https://gatsbyjs.org) starter project for ecommerce using [Snipcart](https://snipcart.com). It's configured to pull products data from [Flotiq](https://flotiq.com) and can be easily deployed to your cloud hosting - Heroku, Netlify, Gatsby Cloud, etc.
+This is a [Gatsby](https://gatsbyjs.org) starter project for ecommerce using [Snipcart](https://snipcart.com). It's configured to pull products and categories data from [Flotiq](https://flotiq.com) and can be easily deployed to your cloud hosting - Heroku, Netlify, Gatsby Cloud, etc.
 
 Live Demo: https://flotiq-starter-products.herokuapp.com
 
 Screenshot
 
-<img src="https://github.com/flotiq/gatsby-starter-products/blob/master/docs/flotiq-starter-products.png" width=480 />
+<img src="https://github.com/flotiq/gatsby-starter-products-with-categories/blob/master/docs/flotiq-starter-products.png" width=480 />
 
 ## Quick start
 
 1. **Start project from template using Gatsby CLI**
     
     ```bash
-    gatsby new gatsby-starter-products https://github.com/flotiq/gatsby-starter-products.git
+    gatsby new gatsby-starter-products-with-categories https://github.com/flotiq/gatsby-starter-products-with-categories.git
     ```
 
 1.  **Setup "Products" Content Type in Flotiq**
 
    Create your [Flotiq.com](https://editor.flotiq.com/register.html) account. 
    
-   Next, create the `Product` Content Type:
+   Next, create the `Category` and the `Product` Content Type:
    
-   ![Create content type definition using Flotiq](docs/create-definition.png)
+   ![Create content type definition using Flotiq](docs/create-definition1.png)
+   ![Create content type definition using Flotiq](docs/create-definition2.png)
    
-   _Note: You can also create `Product` using [Flotiq REST API](https://flotiq.com/docs/API/):_            
+   _Note: You can also create `Category` and `Product` using [Flotiq REST API](https://flotiq.com/docs/API/):_            
    
-   ```sh
-   curl 'https://api.flotiq.com/api/v1/internal/contenttype' -H 'X-AUTH-TOKEN: __YOUR_API_KEY__' -H 'Content-Type: application/json;chars--data-binary ' -X POST --data-binary '{"name":"product","label":"Product","schemaDefinition":{"type":"object","allOf":[{"$ref":"#/components/schemas/AbstractContentTypeSchemaDefinition"},{"type":"object","properties":{"name":{"type":"string","minLength":1},"slug":{"type":"string","minLength":1},"price":{"type":"number","minLength":1},"description":{"type":"string"},"productImage":{"type":"array","items":{"$ref":"#/components/schemas/DataSource"},"minItems":0},"productGallery":{"type":"array","items":{"$ref":"#/components/schemas/DataSource"},"minItems":0}}}],"required":["name","slug","price"],"additionalProperties":false},"metaDefinition":{"propertiesConfig":{"name":{"inputType":"text","unique":true,"isTitlePart":true},"slug":{"inputType":"text","unique":true},"price":{"inputType":"number","unique":false},"description":{"inputType":"richtext","unique":false},"productImage":{"inputType":"datasource","unique":false,"validation":{"relationContenttype":"_media"}},"productGallery":{"inputType":"datasource","unique":false,"validation":{"relationMultiple":true,"relationContenttype":"_media"}}},"order":["name","slug","price","description","productImage","productGallery"]}}' --compressed
-   ```
   
 1.  **Configure application**
 
@@ -54,7 +52,7 @@ Screenshot
     Navigate into your new site’s directory and start it up.
     
     ```sh
-    cd gatsby-starter-products
+    cd gatsby-starter-products-with-categories
     npm install
     gatsby develop
     ```
@@ -65,9 +63,9 @@ Screenshot
     node ./example/importExample.js
     ```
     
-    It will add 10 images and 4 products to your Flotiq account.
+    It will add 2 categories, 10 images and 4 products to your Flotiq account.
     
-    _Note: You need to put your Read and write API key in `.env` for import to work. You don't need Product content type in your account. If you already have products with ids `product-1`, `product-2`, `product-3`, and `product-4` they will be overwritten._
+    _Note: You need to put your Read and write API key in `.env` for import to work. You don't need Category and Product content types in your account. If you already have products with ids `product-1`, `product-2`, `product-3`, and `product-4` or categories with ids `category-1` and `category-2` they will be overwritten._
 
 1.  **Open the source code and start editing!**
 
@@ -79,24 +77,25 @@ Screenshot
 
 1. **Manage your products using Flotiq editor**
 
-    You can easily manage your products using Flotiq editor
+    You can easily manage your products and categories using Flotiq editor
     
     ![](docs/manage-products.png)
+    ![](docs/manage-categories.png)
  
 
 ## Deploy
 
   You can deploy this project to Heroku in 3 minutes:
 
-  [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/flotiq/gatsby-starter-products)
+  [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/flotiq/gatsby-starter-products-with-categories)
 
   Or to Netlify:
 
-  [![Deploy](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/flotiq/gatsby-starter-products)
+  [![Deploy](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/flotiq/gatsby-starter-products-with-categories)
 
 
 ## Collaborating
 
    If you wish to to talk with us about this project, feel free to hop on our [discord server](https://discord.gg/FwXcHnX).
    
-   If you found a bug, please report it in [issues](https://github.com/flotiq/gatsby-starter-products/issues).
+   If you found a bug, please report it in [issues](https://github.com/flotiq/gatsby-starter-products-with-categories/issues).

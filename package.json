@@ -1,5 +1,5 @@
 {
-  "name": "gatsby-starter-products",
+  "name": "gatsby-starter-products-with-categories",
   "private": true,
   "description": "A starter for a e-commerce powered by Gatsby and Flotiq",
   "version": "0.1.0",
@@ -46,9 +46,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/flotiq/gatsby-starter-products"
+    "url": "https://github.com/flotiq/gatsby-starter-products-with-categories"
   },
   "bugs": {
-    "url": "https://github.com/flotiq/gatsby-starter-products/issues"
+    "url": "https://github.com/flotiq/gatsby-starter-products-with-categories/issues"
   }
 }

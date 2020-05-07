@@ -1,0 +1,11 @@
+{
+  "id": "category-1",
+  "name": "Green Tea",
+  "slug": "green-tea",
+  "image": [
+    {
+      "type": "internal",
+      "dataUrl": "/api/v1/content/_media/_media-5e8d9cc689abd"
+    }
+  ]
+}

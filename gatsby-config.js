@@ -15,7 +15,7 @@ module.exports = {
         "baseUrl": process.env.GATSBY_FLOTIQ_BASE_URL,
         "authToken": process.env.FLOTIQ_API_KEY,
         "forceReload": false,
-        "includeTypes": ['product', '_media']
+        "includeTypes": ['product', '_media', 'category']
       },
     },
     `gatsby-plugin-react-helmet`,
