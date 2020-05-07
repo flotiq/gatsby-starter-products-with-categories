@@ -107,7 +107,6 @@ exports.importExamples = async () => {
                     if (res.status === 403) {
                         assert.ok(false, `Please provide correct API key (Read and write Application API key)`)
                     }
-                    let json = await res.json();
                     return res;
                 }
             }))
