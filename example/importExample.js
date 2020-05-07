@@ -61,7 +61,6 @@ exports.importExamples = async () => {
     for (let i = 0; i < directories.length; i++) {
         const directory = directories[i];
         if(directory.indexOf(`ContentType`) === 0) {
-            console.log(directory)
             let contentDefinition = require(directoryPath + `/` + directory + `/ContentTypeDefinition.json`)
             let contentTypeDefinitionResponse = await fetch(apiUrl + `/api/v1/internal/contenttype/` + contentDefinition.name, { headers: headers })
             if (!contentTypeDefinitionResponse.ok) {
@@ -83,7 +82,6 @@ exports.importExamples = async () => {
             files = fs.readdirSync(directoryPath + '/' + directory)
             await Promise.all(files.map(async function (file) {
                 if (file.indexOf(`contentObject`) === 0) {
-                    console.log(directoryPath + '/' + directory + `/` + file);
                     let contentObject = require(directoryPath + '/' + directory + `/` + file)
                     let id = contentObject.id
                     let res = await fetch(apiUrl + `/api/v1/content/` + contentDefinition.name + `/` + id, {method: `HEAD`, headers: headers})
@@ -99,23 +97,17 @@ exports.importExamples = async () => {
                     contentObject = JSON.stringify(contentObject)
                     imageToReplace.forEach((image, index) => {
                         let regex = new RegExp(image, 'g')
-                        console.log(image)
-                        console.log(imageForReplacing)
                         contentObject = contentObject.replace(regex, imageForReplacing[image])
-                        console.log(contentObject)
                     })
-                    console.log(url)
                     res = await fetch(url, {
                         method: method,
                         body: contentObject,
                         headers: {...headers, 'Content-Type': `application/json`},
                     })
-                    console.log(res.status);
                     if (res.status === 403) {
                         assert.ok(false, `Please provide correct API key (Read and write Application API key)`)
                     }
                     let json = await res.json();
-                    console.log(json);
                     return res;
                 }
             }))
