@@ -12,10 +12,10 @@ class IndexPost extends React.Component {
     return (
       <React.Fragment>
         <div className="row product-main">
-          {data.data.allCategory.nodes.map(items => (
+          {data.data.allCategory.nodes.map(item => (
             <div
               className="Catalogue__item col-sm-12 col-md-6 col-lg-4"
-              key={items.id}
+              key={item.id}
             >
               <Link to={`/${item.slug}`}>
                 <div className="details_List">
