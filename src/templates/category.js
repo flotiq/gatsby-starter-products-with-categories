@@ -7,7 +7,7 @@ import SEO from "../components/seo"
 class IndexCategory extends React.Component {
   render() {
     const { data } = this.props
-
+    console.log(data.data)
     return (
       <React.Fragment>
         <div className="row product-main">
@@ -16,7 +16,7 @@ class IndexCategory extends React.Component {
               className="Catalogue__item col-sm-12 col-md-6 col-lg-4"
               key={item.id}
             >
-              <Link to={`/${data.data.category.slug}/${item.slug}`}>
+              <Link to={`/${item.category[0].slug}/${item.slug}`}>
                 <div className="details_List">
                   {item.productImage && item.productImage[0] ? (
                     <Img
@@ -39,7 +39,7 @@ class IndexCategory extends React.Component {
                       </div>
                       <div className="col-sm-8 text-right align-self-center">
                         <a
-                          href={`/${data.data.category.slug}`}
+                          href={`/${item.category[0].slug}`}
                           className="Product snipcart-add-item"
                           data-item-id={item.slug}
                           data-item-price={item.price}
@@ -49,7 +49,7 @@ class IndexCategory extends React.Component {
                               : ""
                           }
                           data-item-name={item.name}
-                          data-item-url={`/${data.data.category.slug}`}
+                          data-item-url={`/${item.category[0].slug}`}
                         >
                           <i className="fas fa-shopping-bag" />
                           Add to Cart
@@ -92,6 +92,7 @@ export const query = graphql`
         slug
         name
         price
+
         description
         productImage {
           id
@@ -100,6 +101,9 @@ export const query = graphql`
         productGallery {
           id
           extension
+        }
+        category {
+          slug
         }
       }
     }
