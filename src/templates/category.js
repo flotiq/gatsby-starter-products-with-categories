@@ -11,10 +11,10 @@ class IndexCategory extends React.Component {
     return (
       <React.Fragment>
         <div className="row product-main">
-          {data.data.allProduct.nodes.map(items => (
+          {data.data.allProduct.nodes.map(item => (
             <div
               className="Catalogue__item col-sm-12 col-md-6 col-lg-4"
-              key={items.id}
+              key={item.id}
             >
               <Link to={`/${data.data.category.slug}/${item.slug}`}>
                 <div className="details_List">
