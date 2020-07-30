@@ -69,22 +69,26 @@
     ],
     "propertiesConfig": {
       "name": {
+        "label": "Name",
         "unique": true,
         "helpText": "",
         "inputType": "text",
         "isTitlePart": true
       },
       "slug": {
+        "label": "Slug",
         "unique": true,
         "helpText": "",
         "inputType": "text"
       },
       "price": {
+        "label": "Price",
         "unique": false,
         "helpText": "",
         "inputType": "number"
       },
       "category": {
+        "label": "Category",
         "unique": false,
         "helpText": "",
         "inputType": "datasource",
@@ -93,11 +97,13 @@
         }
       },
       "description": {
+        "label": "Description",
         "unique": false,
         "helpText": "",
         "inputType": "richtext"
       },
       "productImage": {
+        "label": "Product image",
         "unique": false,
         "helpText": "",
         "inputType": "datasource",
@@ -106,6 +112,7 @@
         }
       },
       "productGallery": {
+        "label": "Product gallery",
         "unique": false,
         "helpText": "",
         "inputType": "datasource",

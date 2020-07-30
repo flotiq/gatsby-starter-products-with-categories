@@ -42,17 +42,20 @@
     ],
     "propertiesConfig": {
       "name": {
+        "label": "Name",
         "unique": false,
         "helpText": "",
         "inputType": "text",
         "isTitlePart": true
       },
       "slug": {
+        "label": "Slug",
         "unique": true,
         "helpText": "",
         "inputType": "text"
       },
       "image": {
+        "label": "Image",
         "unique": false,
         "helpText": "",
         "inputType": "datasource",
