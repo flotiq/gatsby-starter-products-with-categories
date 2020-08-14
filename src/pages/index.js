@@ -21,7 +21,7 @@ class IndexPost extends React.Component {
                   {item.image && item.image[0] ? (
                     <Img
                       sizes={{
-                        src: `${process.env.GATSBY_FLOTIQ_BASE_URL}/image/1920x0/${item.image[0].id}.${item.image[0].extension}`,
+                        src: `https://api.flotiq.com/image/1920x0/${item.image[0].id}.${item.image[0].extension}`,
                         aspectRatio: 1.77,
                         sizes: "",
                         srcSet: "",

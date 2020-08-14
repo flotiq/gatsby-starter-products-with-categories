@@ -20,7 +20,7 @@ class IndexCategory extends React.Component {
                   {item.productImage && item.productImage[0] ? (
                     <Img
                       sizes={{
-                        src: `${process.env.GATSBY_FLOTIQ_BASE_URL}/image/1920x0/${item.productImage[0].id}.${item.productImage[0].extension}`,
+                        src: `https://api.flotiq.com/image/1920x0/${item.productImage[0].id}.${item.productImage[0].extension}`,
                         aspectRatio: 1.77,
                         sizes: "",
                         srcSet: "",
@@ -44,7 +44,7 @@ class IndexCategory extends React.Component {
                           data-item-price={item.price}
                           data-item-image={
                             item.productImage && item.productImage[0]
-                              ? `${process.env.GATSBY_FLOTIQ_BASE_URL}/image/1920x0/${item.productImage[0].id}.${item.productImage[0].extension}`
+                              ? `https://api.flotiq.com/image/1920x0/${item.productImage[0].id}.${item.productImage[0].extension}`
                               : ""
                           }
                           data-item-name={item.name}

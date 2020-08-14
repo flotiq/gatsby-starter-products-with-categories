@@ -18,7 +18,7 @@ const ProductDetails = data => (
                 <TabPanel key={items.id}>
                   <Tab><img
                       alt={data.data.product.name}
-                      src={`${process.env.GATSBY_FLOTIQ_BASE_URL}/image/1920x0/${items.id}.${items.extension}`} /></Tab>
+                      src={`https://api.flotiq.com/image/1920x0/${items.id}.${items.extension}`} /></Tab>
                 </TabPanel>
               ))}
               <TabList>
@@ -26,7 +26,7 @@ const ProductDetails = data => (
                   <Tab key={items.id}>
                     <img
                         alt={data.data.product.name}
-                        src={`${process.env.GATSBY_FLOTIQ_BASE_URL}/image/1920x0/${items.id}.${items.extension}`} />
+                        src={`https://api.flotiq.com/image/1920x0/${items.id}.${items.extension}`} />
                   </Tab>
                 ))}
               </TabList>
@@ -49,7 +49,7 @@ const ProductDetails = data => (
               className="Product snipcart-add-item"
               data-item-id={data.data.product.slug}
               data-item-price={data.data.product.price}
-              data-item-image={data.data.product.productImage && data.data.product.productImage[0] ? `${process.env.GATSBY_FLOTIQ_BASE_URL}/image/1920x0/${data.data.product.productImage[0].id}.${data.data.product.productImage[0].extension}` : ""}              data-item-name={data.data.product.name}
+              data-item-image={data.data.product.productImage && data.data.product.productImage[0] ? `https://api.flotiq.com/image/1920x0/${data.data.product.productImage[0].id}.${data.data.product.productImage[0].extension}` : ""}              data-item-name={data.data.product.name}
               data-item-url={`/`}
             >
               <i className="fas fa-tags" />
