@@ -31,7 +31,7 @@ Screenshot
    ![Create content type definition using Flotiq](docs/create-definition1.png)
    ![Create content type definition using Flotiq](docs/create-definition2.png)
    
-   _Note: You can also create `Category` and `Product` using [Flotiq REST API](https://flotiq.com/docs/API/):_            
+   _Note: You can also create `Category` and `Product` using [Flotiq REST API](https://flotiq.com/docs/API/)_            
    
   
 1.  **Configure application**
